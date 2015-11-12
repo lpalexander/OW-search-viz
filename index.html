@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+
+	<title>OW searches</title>
+
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+
+	<script src="js/d3.js" charset="utf-8"></script>
+	<script src="js/d3.hexbin.v0.min.js" charset="utf-8"></script>
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<script src="js/leaflet-omnivore.min.js" charset="utf-8"></script>
+	<script src="leaflet.d3.js" charset="utf-8"></script>
+	<script src="js/jquery.min.js"></script>
+
+	<style>
+		.hexbin-hexagon {
+			stroke: #000;
+			stroke-width: 0px;
+			cursor: pointer;
+		}
+
+    div.tooltip {
+  		position: absolute;
+  		text-align: center;
+  		padding: 10px;
+  		font-size: 12px;
+  		background: #FFF;
+  		border: 1px;
+  		visibility: hidden;
+  		pointer-events: none;
+}
+
+h2 {
+    display: block;
+    font-size: 2.5em;
+    margin-top: 0.83em;
+    margin-bottom: 0.83em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
+
+	</style>
+
+</head>
+
+
+
+<body class="index">
+
+	<!-- Header -->
+	<!-- <header id="header" style="position: fixed; top: 0px; left: 0px; right: 0px; z-index: 1030;">
+	</header> -->
+
+	<!-- Main -->
+	<article id="main">
+
+		<!-- 2014 Location History -->
+		<div id="top">
+
+			<section class="wrapper style3 container">
+
+				<header>
+					<h2><center>Where do zipsters want to pick up ONE>WAY vehicles?</center></h2>
+				</header>
+
+				<div style="padding: 0 15px; text-align: center;">
+
+					<div style="text-align: center; display: inline-block; padding: 0 40px; color: #777;">
+						<label
+								style="display: inline-block;">
+								time of day:
+						</label>
+						<label for="hour"
+								style="display: inline-block; min-width: 40px">
+								<span id="hour-value">17:00</span>
+				  	</label>
+				  	<input type="range" min="0.0" max="23.5" id="hour" step="0.5" value=17 >
+						<button id="animate" style="display: inline-block; font-family: 'Times';
+												border-radius: 2px; background-color: #777; color: white; border: none;
+												font-size: 16px">animate</button>
+					</div>
+
+					<div style="text-align: center; display: inline-block; padding: 0 40px; color: #777;">
+						<label
+								style="display: inline-block;">
+								day of week:
+						</label>
+				  	<input type="radio" name="day" id="weekday" value="weekday" checked="true" style=" margin-left: 10px;">weekday
+						<input type="radio" name="day" id="weekend" value="weekend" style="margin-left: 10px;">weekend
+					</div>
+
+				</div>
+
+				<p> </p>
+
+				<!-- The map element -->
+				<div style="margin: 0 15px;">
+					<div id="map" style="width: 100%; height: 625px; border: 1px solid #ccc;"></div>
+				</div>
+
+				<header >
+					<h3 style="margin-left: 20px;"> Interacting with the map</h3>
+				</header>
+
+				<ul>
+				  <li>Use the 'time of day' slider to view average daily ONE>WAY vehicle searches in half-hour time windows</li>
+					<li>Use the 'animate' button to view searches beginning at the selected 'time of day' and ending
+							after 24 hours, or when the 'animate' button is pressed again</li>
+				  <li>Use the 'day of week' radio buttons to view average daily ONE>WAY vehicle searches for weekdays or weekends</li>
+					<li>Click a hexbin to see the number of average daily searches in a given area and time</li>
+					<li>Zooming the map in and out will result in smaller and larger hexbins, respectively</li>
+					<li>To explore areas not presently shown in the map, click to pan in any direction</li>
+				</ul>
+
+				<header >
+					<h3 style="margin-left: 20px;"> Understanding the map</h3>
+				</header>
+
+				<ul>
+					<li>Hexbin hue reflects the number of searches relative to other hexbins in a given time of day and day of week</li>
+					<li>The darker the hexbin hue, the higher the demand</li>
+					<li>Search data spans the 18-week period between 7/6/2015 and 11/8/2015</li>
+					<li>The green circles reflect the locations of ONE>WAY parking spaces on 9/7/2015</li>
+				</ul>
+
+
+			</section>
+
+		</div>
+
+	</article>
+
+	<script src="one-way-map.js"></script>
+</body>
+
+</html>
